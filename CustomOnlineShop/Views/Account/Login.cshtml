@@ -1,0 +1,45 @@
+﻿@model LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="col-md-12 content-margin">
+    <div class="card">
+        <div class="bg-primary card-header">
+            <h4 class="text-light">Log In</h4>
+        </div>
+        <div class="text-danger" asp-validation-summary="All"></div>
+
+        <!-- Login -->
+        <form asp-controller="Account" asp-action="Login" method="post" style="margin:10px">
+            <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-inline form-check">
+                <label asp-for="RememberMe">Remember me:</label>
+                <input asp-for="RememberMe" class="form-check-input" style="margin-left: 40px" />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Log In</button>
+            </div>
+        </form>
+    </div>
+    <!-- Register -->
+    <div class="text-center">
+        <div class="text-center" style="margin: 15px 0px 5px 0px">You don't have an accout?</div>
+        <div class="text-center">
+            <form asp-controller="Account" asp-action="Register" method="get">
+                <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+                <button type="submit" class="btn btn-success">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</div>

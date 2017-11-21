@@ -1,0 +1,70 @@
+﻿@model CatalogItemViewModel
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<div class="col-lg-9">
+    <!-- Back button -->
+    <a class=" btn btn-outline-info" asp-action="Index" style="color: #000000; margin-top: 10px"><i class="fa fa-arrow-left" aria-hidden="true"></i> Go back</a>
+
+
+    <div class="card mt-4">
+        @if (Model.ImagePath != null)
+        {
+            <img class="card-img-top img-fluid" src="@Model.ImagePath" alt="">
+        }
+        else
+        {
+            <img class="card-img-top img-fluid" src="~/images/products/placeholder.png" alt="">
+        }
+        <div class="row">
+             <!-- Card body -->
+            <div class="col-sm-12 col-md-6">
+                <div class="card-body">
+                    <h3 class="card-title">@Model.Name</h3>
+                    <h4>@Model.Price zł</h4>
+                    <p class="card-text">@Model.FullDescription</p>
+                    <!-- Rating -->
+                    <div>
+                    @for (int i = 1; i <= 5; i++)
+                    {
+                        @if ((int)Model.AverageRating >= i)
+                        {
+                            <span class="text-warning"><i class="fa fa-star " aria-hidden="true"></i></span>
+                        }
+                        else
+                        {
+                            <span><i class="fa fa-star " aria-hidden="true"></i></span>
+                        }
+                    }
+                    </div>                    
+                    <div><strong>@Model.AverageRating.ToString("N2") </strong> average calculated based on <strong>@Model.ReviewsCount</strong> reviews</div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <!-- Add to Cart -->
+                <form asp-controller="Cart" asp-action="AddToCart" id="addToCartForm" style="margin: 10px 15px 10px 15px">
+                    <div class="input-group stylish-input-group">
+                        <input type="hidden" asp-for="Id"/>
+                        <input type="hidden" asp-for="Name" />
+                        <input type="hidden" asp-for="Price" />
+                        <button class="btn btn-info btn-lg w-100 " style="background-color: #0f4efc"  type="submit">
+                            <strong>Add to cart  <i class="fa fa-cart-plus" aria-hidden="true"></i></strong>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Reviews -->
+    <div class="card card-outline-secondary my-4">
+
+        @await  Component.InvokeAsync("DisplayReviews", new { productId = Model.Id, userName = Context.User.Identity.Name })
+
+        <a class="btn btn-success" asp-controller="ProductReview" asp-action="CreateReview" asp-route-productId="@Model.Id">Leave a Review</a>
+
+    </div>
+</div>
+

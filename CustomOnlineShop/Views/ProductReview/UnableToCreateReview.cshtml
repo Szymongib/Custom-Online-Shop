@@ -1,0 +1,23 @@
+﻿@model string
+@{
+    ViewData["Title"] = "Unable To Create Review!";
+}
+
+<div class="container text-center">
+    <h2 class="content-margin">Unable to create review ;(</h2>
+
+    @if (Model == "NotOrdered")
+    {
+        <h4>You can only review products that you have bought.</h4>
+    }
+    @if (Model == "AlreadyReviewed")
+    {
+        <h4 class="content-margin">You have already reviewed that product!</h4>
+    }
+
+    <div class="text-center content-margin">
+        <a class="btn btn-warning" href="javascript: history.go(-1)">Go back</a>
+    </div>
+
+</div>
+

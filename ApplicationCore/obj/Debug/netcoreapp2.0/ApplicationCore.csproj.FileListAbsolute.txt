@@ -1,0 +1,9 @@
+C:\VS_Projects\CustomOnlineShop\ApplicationCore\bin\Debug\netcoreapp2.0\ApplicationCore.deps.json
+C:\VS_Projects\CustomOnlineShop\ApplicationCore\bin\Debug\netcoreapp2.0\ApplicationCore.dll
+C:\VS_Projects\CustomOnlineShop\ApplicationCore\bin\Debug\netcoreapp2.0\ApplicationCore.pdb
+C:\VS_Projects\CustomOnlineShop\ApplicationCore\obj\Debug\netcoreapp2.0\ApplicationCore.csprojResolveAssemblyReference.cache
+C:\VS_Projects\CustomOnlineShop\ApplicationCore\obj\Debug\netcoreapp2.0\ApplicationCore.csproj.CoreCompileInputs.cache
+C:\VS_Projects\CustomOnlineShop\ApplicationCore\obj\Debug\netcoreapp2.0\ApplicationCore.AssemblyInfoInputs.cache
+C:\VS_Projects\CustomOnlineShop\ApplicationCore\obj\Debug\netcoreapp2.0\ApplicationCore.AssemblyInfo.cs
+C:\VS_Projects\CustomOnlineShop\ApplicationCore\obj\Debug\netcoreapp2.0\ApplicationCore.dll
+C:\VS_Projects\CustomOnlineShop\ApplicationCore\obj\Debug\netcoreapp2.0\ApplicationCore.pdb

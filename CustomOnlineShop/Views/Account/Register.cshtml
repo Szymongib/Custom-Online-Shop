@@ -1,0 +1,186 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container col-sm-12 col-lg-9 content-margin">
+    <form class="form-horizontal" role="form" method="POST" asp-controller="Account" asp-action="Register">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h2>Register</h2>
+                <hr>
+            </div>
+        </div>
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+
+        <!-- User Name -->
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="userName">User Name</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user-o"></i></div>
+                        <input type="text" asp-for="UserName" class="form-control" placeholder="John" required autofocus>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- First Name -->
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="name">First Name</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+                        <input type="text" asp-for="FirstName" class="form-control" placeholder="John" required autofocus>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Last Name -->
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="name">Last Name</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+                        <input type="text" asp-for="LastName" class="form-control" placeholder="Doe" required autofocus>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Email -->
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="email">E-Mail Address</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
+                        <input type="text" asp-for="Email" class="form-control" placeholder="you@example.com" required autofocus>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phone Number -->
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="phoneNumber">Phone Number</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-phone"></i></div>
+                        <input type="tel" asp-for="PhoneNumber" class="form-control" placeholder="123456789" required autofocus>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Password -->
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="password">Password</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group has-danger">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
+                        <input type="password" asp-for="Password" class="form-control" placeholder="Password" required>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="password">Confirm Password</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem">
+                            <i class="fa fa-repeat"></i>
+                        </div>
+                        <input type="password" asp-for="PasswordConfirm" class="form-control" placeholder="Confirm Password" required>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                        <span asp-validation-for="PasswordConfirm" class="text-danger"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submit button -->
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-success"><i class="fa fa-user-plus"></i> Register</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+

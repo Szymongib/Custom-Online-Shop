@@ -1,0 +1,64 @@
+﻿@model IEnumerable<AppUser>
+@{
+    ViewData["Title"] = "Users";
+}
+
+
+<div class="container " style="margin: 12px">
+<h2 class="text-left content-margin">Registered users:</h2>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="table-responsive">
+                <table summary="This table shows how to create responsive tables using Bootstrap's default functionality" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>E-mail</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Phone</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if(Model.Count() == 0)
+                        {
+                            <tr>
+                                <td colspan="8">There are no users in database.</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            @foreach (AppUser c in Model)
+                            {
+                                <tr>
+                                    <td>@c.Id</td>
+                                    <td><a asp-action="Details" asp-route-customerId="@c.Id">@c.UserName</a></td>
+                                    <td>@c.Email</td>
+                                    <td>@c.FirstName</td>
+                                    <td>@c.LastName</td>
+                                    <td>@c.PhoneNumber</td>
+                                    <td>
+                                        <div data-placement="top" data-toggle="tooltip" title="Delete">
+                                            <form asp-action="DeleteUser" asp-route-id="@c.Id">
+                                                <button class="btn btn-danger btn-sm" type="submit">
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <a class="btn btn-outline-info" asp-action="Index"><i class="fa fa-arrow-left" aria-hidden="true"></i> Go Back</a>
+
+</div>
+

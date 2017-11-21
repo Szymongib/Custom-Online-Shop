@@ -1,0 +1,26 @@
+﻿@model ShippingInfoViewModel
+
+
+<div class="card h-100">
+    <div class="card-body">
+        <h4 class="card-title">
+            Country: @Model.Country <br />
+            City: @Model.City <br />
+            Zip Code: @Model.ZipCode <br />
+            Address: @Model.Address
+        </h4>
+    </div>
+    <div class="card-footer pull-down">
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="col-6 d-inline w-25">
+                    <a class="btn btn-sm btn-info w-25" asp-action="Edit" asp-controller="Shipping" asp-route-infoId="@Model.Id">Edit</a>
+                </div>
+                <form class="col-6 d-inline w-25" asp-controller="Shipping" asp-action="Delete">
+                    <input type="hidden" asp-for="Id"/>
+                    <button class="btn btn-sm btn-danger w-25" type="submit">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

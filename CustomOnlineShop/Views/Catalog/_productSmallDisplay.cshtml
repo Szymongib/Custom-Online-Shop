@@ -1,0 +1,46 @@
+﻿@model CatalogItemViewModel
+
+<div class="col-lg-4 col-md-6 mb-4">
+    <div class="card h-100">
+        <!-- Img -->
+            <a asp-controller="Catalog" asp-action="Item" asp-route-productId="@Model.Id" class="button-not-a-button">
+                @if (Model.ImagePath != null)
+                {
+                    <img class="card-img-top" src="@Model.ImagePath" alt="">
+                }
+                else
+                {
+                    <img class="card-img-top" src="~/images/products/placeholder.png" alt="">
+                }
+            </a>
+
+        <!-- Name, price, etc -->
+            <div class="card-body">
+                <h4 class="card-title">
+                    <a asp-controller="Catalog" asp-action="Item" asp-route-productId="@Model.Id" class="button-not-a-button page-link text-dark">
+                        @Model.Name
+                    </a>
+                </h4>
+                <h5>@Model.Price zł</h5>
+                <p class="card-text">@Model.ShortDescription</p>
+            </div>
+
+        <div class="card-footer pull-down">
+            <!-- Rating -->
+            <span>
+                @for (int i = 1; i <= 5; i++)
+                {
+                    @if ((int)Model.AverageRating >= i)
+                    {
+                        <span class="text-warning"><i class="fa fa-star " aria-hidden="true"></i></span>
+                    }
+                    else
+                    {
+                        <span><i class="fa fa-star " aria-hidden="true"></i></span>
+                    }
+                }
+            </span>
+            <small class="float-right" >@Model.AverageRating.ToString("N2")</small>
+        </div>
+    </div>
+</div>

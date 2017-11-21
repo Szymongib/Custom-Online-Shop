@@ -1,0 +1,95 @@
+﻿@model ProductReviewViewModel
+@{
+    ViewData["Title"] = "Create Review";
+}
+
+<div class="container col-sm-12 col-lg-9 content-margin">
+    <form class="form-horizontal" role="form" method="POST" asp-controller="ProductReview" asp-action="CreateReview">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h2>Review</h2>
+                <hr>
+            </div>
+        </div>
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <input type="hidden" asp-for="ProductId" />
+
+        <!-- Title -->
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="Title">Title</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-tag"></i></div>
+                        <input type="text" asp-for="Title" class="form-control" placeholder="Title..." required autofocus>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rating -->
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="Rating">Rating</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-star"></i></div>
+                        <input type="number" asp-for="Rating" class="form-control" placeholder="5" required autofocus>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                        <span asp-validation-for="Rating" class="text-danger"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Description -->
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="Description">Description</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-pencil"></i></div>
+                        <textarea type="text" asp-for="Description" class="form-control" placeholder="Description..." required autofocus></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Submit button -->
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-success"><i class="fa fa-file-text"></i> Save Review</button>
+            </div>
+        </div>
+    </form>
+</div>
+

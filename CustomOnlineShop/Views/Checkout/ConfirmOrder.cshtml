@@ -1,0 +1,85 @@
+﻿@model OrderViewModel
+@{
+    ViewData["Title"] = "Confirm Order";
+}
+
+<h3 class="content-margin">Order Summary</h3>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-12">
+            <div class="table-responsive">
+                <table summary="This table shows how to create responsive tables using Bootstrap's default functionality" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (OrderEntryViewModel entry in Model.OrderEntries)
+                        {
+                            <tr>
+                                <td>@entry.ProductName</td>
+                                <td>@entry.Quantity</td>
+                                <td>@entry.EntryPrice zł</td>
+                            </tr>
+                        }
+                        <tr>
+                            <td colspan="2"><strong>Total Price:</strong></td>
+                            <td><strong>@Model.TotalPrice zł</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Selected shipping info -->
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+            <h4 class="content-margin">Selected Address:</h4>
+            <div class="">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            Country: @Model.ShippingInfo.Country <br />
+                            City: @Model.ShippingInfo.City <br />
+                            Zip Code: @Model.ShippingInfo.ZipCode <br />
+                            Address: @Model.ShippingInfo.Address
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Selected payment method -->
+        <div class="col-sm-12 col-md-6">
+            <h4 class="content-margin">Selected Payment method:</h4>
+            <div class="">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            @Model.PaymentMethod                            
+                        </h4>
+                        Payment details
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row text-left">
+        <div class="text-left w-100" style="margin: 20px">
+            <form asp-controller="Checkout" asp-action="ConfirmOrder" method="post">
+                <input type="hidden" asp-for="OrderId" />
+                <button type="submit" class="btn btn-success text-light">Confirm Order!</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+

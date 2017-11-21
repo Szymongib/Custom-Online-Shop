@@ -1,0 +1,39 @@
+﻿@model OrderViewModel
+
+
+<div class="col-sm-12 col-lg-6">
+    <h5 class="content-margin">Order from @Model.Date</h5>
+    <div class="row">
+        <div class="col-xs-12 col-12 text-center">
+            <div class="table-responsive" style="background-color: #FAFAFF">
+
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <td>Product</td>
+                            <td>Quantity</td>
+                            <td>UnitPrice</td>
+                            <td>Price</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (OrderEntryViewModel entry in Model.OrderEntries)
+                        {
+                            <tr>
+                                <td>@entry.ProductName</td>
+                                <td>x @entry.Quantity</td>
+                                <td>@entry.UnitPrice</td>
+                                <td>@entry.EntryPrice</td>
+                            </tr>
+                        }                        
+                        <tr>
+                            <td colspan="3"><strong>Total Price:</strong></td>
+                            <td>@Model.TotalPrice</td>
+                        </tr>                        
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

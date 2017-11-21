@@ -1,0 +1,23 @@
+﻿@model DisplayOrdersViewModel
+@{
+    ViewData["Title"] = "My Orders";
+}
+
+<h2 class="content-margin">Your orders:</h2>
+<div class="row col-12 w-100">
+
+    @if (Model.Orders.Count == 0)
+    {
+        <div class="text-center col-12" style="margin-bottom:20px"><i style="font-size:larger">You have not made any orders yet.</i></div>
+    }
+    else
+    {
+        @foreach (OrderViewModel order in Model.Orders)
+        {
+            @Html.Partial("_orderDisplay", order)
+        }
+    }
+
+
+
+</div>

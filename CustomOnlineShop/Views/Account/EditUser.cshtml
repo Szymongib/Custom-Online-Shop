@@ -1,0 +1,94 @@
+﻿@model EditUserViewModel
+@{
+    ViewData["Title"] = "Edit Information";
+}
+
+<div class="container col-sm-12 col-lg-9 content-margin">
+    <!-- Edit info -->
+    <form class="form-horizontal" role="form" method="POST" asp-controller="Account" asp-action="EditUser">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h2>Edit information</h2>
+                <hr>
+            </div>
+        </div>
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <!-- First Name -->
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label asp-for="FirstName"></label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+                        <input type="text" asp-for="FirstName" class="form-control" placeholder="John" autofocus>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                        <span asp-validation-for="FirstName" class="text-danger align-middle"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Last Name -->
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label asp-for="LastName"></label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+                        <input type="text" asp-for="LastName" class="form-control" placeholder="Doe" autofocus>                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                        <span asp-validation-for="LastName" class="text-danger align-middle"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phone Number -->
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label asp-for="PhoneNumber"></label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-phone"></i></div>
+                        <input type="tel" asp-for="PhoneNumber" class="form-control" placeholder="123456789" autofocus>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                        <span asp-validation-for="PhoneNumber" class="text-danger align-middle"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submit button -->
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <a asp-controller="Account" asp-action="MyAccount" class="btn btn-danger" style="margin-right: 10px">Cancel</a>
+                <button type="submit" class="btn btn-success"><i class="fa fa-user-plus"></i> Save Changes</button>
+            </div>
+        </div>
+    </form>
+</div>

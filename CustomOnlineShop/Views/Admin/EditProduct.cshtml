@@ -1,0 +1,64 @@
+﻿@model CreateProductViewModel
+@{
+    ViewData["Title"] = "Edit Product";
+}
+
+<div class="container text-center border col-lg-6 col-md-12 col-sm-12 form-margin-10-5" style="padding: 5px">
+
+    <h3>Product:</h3>
+
+    <form asp-controller="Admin" asp-action="EditProduct" method="post">
+        <input type="hidden" asp-for="Id" />
+
+        <!-- Product name -->
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <div><span asp-validation-for="Name" class="text-danger"></span></div>
+            <input asp-for="Name" class="form-control" />
+        </div>
+
+        <!-- Full description -->
+        <div class="form-group">
+            <label asp-for="FullDescription"></label>
+            <div><span asp-validation-for="FullDescription" class="text-danger"></span></div>
+            <textarea asp-for="FullDescription" class="form-control"></textarea>
+        </div>
+
+        <!-- Short description -->
+        <div class="form-group">
+            <label asp-for="ShortDescription"></label>
+            <div><span asp-validation-for="ShortDescription" class="text-danger"></span></div>
+            <textarea asp-for="ShortDescription" class="form-control"></textarea>
+        </div>
+
+        <!-- Category -->
+        <div class="form-group">
+            <label asp-for="CategoryId"></label>
+            <div><span asp-validation-for="CategoryId" class="text-danger"></span></div>
+            <select asp-for="CategoryId" asp-items="@(new SelectList(Model.Categories,"Id","Name"))" class="form-control" ></select>
+        </div>
+
+        <!-- Price -->
+        <div class="form-group">
+            <label asp-for="Price"></label>
+            <div><span asp-validation-for="Price" class="text-danger"></span></div>
+            <input asp-for="Price" class="form-control" />
+        </div>
+
+        <!-- Image Name/Path -->
+        <div class="form-group">
+            <label asp-for="ImgPath"></label>
+            <div><span asp-validation-for="ImgPath" class="text-danger"></span></div>
+            <input asp-for="ImgPath" class="form-control" />
+        </div>
+
+        <!-- Submit -->
+        <div class="text-center">
+            <a asp-controller="Admin" asp-action="Products" class="btn btn-danger">Cancel</a>
+            <button class="btn btn-primary" type="submit">Save</button>
+        </div>
+    </form>
+
+</div>
+
+

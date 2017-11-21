@@ -1,0 +1,22 @@
+﻿@model DisplayReviewsViewModel
+
+
+    <div class="card-header">
+        Product Reviews
+    </div>
+    <!-- Reviews -->
+    <div class="card-body">
+        @if (Model.CurrentUserReview != null)
+        {
+            @Html.Partial("_productReviewDisplay", Model.CurrentUserReview)
+        }
+
+        @if (Model.OtherUsersReviews != null)
+        {
+            foreach (ProductReviewViewModel r in Model.OtherUsersReviews)
+            {
+                @Html.Partial("_productReviewDisplay", r)
+            }
+        }
+    </div>
+    

@@ -1,0 +1,114 @@
+﻿@model ShippingInfoViewModel
+@{
+    ViewData["Title"] = "Create Shipping Info";
+}
+
+<div asp-validation-summary="All"></div>
+
+<div class="container col-sm-12 content-margin">
+    <form class="form-horizontal" role="form" method="POST" asp-controller="Shipping" asp-action="CreateInfo">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h2>Shipping info</h2>
+                <hr>
+            </div>
+        </div>
+
+        <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+        <input type="hidden" asp-for="Id"/>
+        
+
+        <!-- Country -->
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label asp-for="Country"></label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <input type="text" asp-for="Country" class="form-control" placeholder="Poland" required autofocus>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                        <span asp-validation-for="Country" class="text-danger align-middle"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- City -->
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label asp-for="City"></label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <input type="text" asp-for="City" class="form-control" placeholder="Katowice" required autofocus>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                        <span asp-validation-for="City" class="text-danger align-middle"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Zip code -->
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label asp-for="ZipCode"></label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <input type="text" asp-for="ZipCode" class="form-control" placeholder="44-213" required autofocus>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                        <span asp-validation-for="ZipCode" class="text-danger align-middle"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Address -->
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label asp-for="Address"></label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <input type="text" asp-for="Address" class="form-control" placeholder="Jasna 3/69" required autofocus>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                        <span asp-validation-for="Address" class="text-danger align-middle"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submit button -->
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-success"><i class="fa fa-user-plus"></i> Save</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,27 @@
+﻿@model CartItemViewModel
+
+<tr>
+    <td>@Model.ProductName</td>
+        <td class="text-center">@Model.ProductPrice.ToString("N2")</td>
+        <td class="text-center input-table-row form-group">
+            <form asp-action="EditItem" asp-controller="Cart" method="post" class="form-inline text-center">
+                <div class="text-center w-100">
+                    <input type="hidden" asp-for="ProductId" />
+                    <input type="number" asp-for="Quantity" class="cart-item-quantity form-control text-center" readonly="readonly" />
+                    <button type="button" class="btn btn-sm cart-item-enable"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                    <button type="submit" class="btn btn-info btn-sm form-control">Edit</button>
+                </div>
+            </form>
+        </td>    
+    <td class="text-center">
+        <form asp-action="RemoveItem" method="post">
+            <input type="hidden" asp-for="ProductId" />
+            <input type="hidden" asp-for="ProductName" />
+            <input type="hidden" asp-for="ProductPrice" />
+            <button type="submit" class="btn btn-danger btn-sm">
+                Delete
+            </button>
+        </form>
+    </td>
+</tr>
+

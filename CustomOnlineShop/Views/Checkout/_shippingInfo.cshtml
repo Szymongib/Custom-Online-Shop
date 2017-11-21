@@ -1,0 +1,16 @@
+﻿@model ShippingInfoViewModel
+
+    <div class="product-chooser-item">
+    <div class="card h-100">
+        <div class="card-body" style="background-color: #efefef">
+            <h4 class="card-title">
+                Country: @Model.Country <br />
+                City: @Model.City <br />
+                Zip Code: @Model.ZipCode <br />
+                Address: @Model.Address
+            </h4>
+        </div>
+        <input name="shippingInfo" type="radio" value="@Model.Id" />
+    </div>
+    <div class="clear"></div>
+</div>

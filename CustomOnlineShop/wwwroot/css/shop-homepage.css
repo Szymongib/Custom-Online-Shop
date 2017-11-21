@@ -1,0 +1,187 @@
+
+body {
+    padding-top: 54px;
+    min-height: 100vh;
+    position: relative;
+}
+
+@media (min-width: 992px) {
+    body {
+        padding-top: 56px;
+    }
+}
+
+/* Fixed footer */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.align-text-center {
+    text-align: center;
+}
+
+
+.button-not-a-button {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+
+.form-margin-10-5 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.no-padding {
+    padding: 0px;
+}
+
+.no-margin {
+    margin: 0px;
+}
+
+.font-md-large {
+    font-size: 18px;
+}
+
+
+.content-margin {
+    margin: 20px 0px 20px 0px;
+}
+
+/* Product images */
+.img-product-small {
+    display: block;
+    max-width: 700px;
+    max-height: 400px;
+    width: auto;
+    height: auto;
+}
+
+.img-product-big {
+    display: block;
+    max-width: 900px;
+    max-height: 400px;
+    width: auto;
+    height: auto;
+}
+
+/* Search bar */
+.stylish-input-group .input-group-addon {
+    background: #FFF;
+}
+.stylish-input-group .form-control {
+    border-right: 0;
+    box-shadow: 0 0 0;
+    border-color: #ccc;
+}
+.stylish-input-group button {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+
+
+/* Table */
+h2 {
+    text-align: center;
+}
+
+table caption {
+    padding: .5em 0;
+}
+
+@media screen and (max-width: 767px) {
+    table caption {
+        border-bottom: 1px solid #ddd;
+    }
+}
+
+.p {
+    text-align: center;
+    padding-top: 140px;
+    font-size: 14px;
+}
+
+
+/* Messages */
+.alert-message {
+    margin: 20px 0;
+    padding: 20px;
+    border-left: 3px solid #eee;
+}
+.alert-message h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.alert-message p:last-child {
+    margin-bottom: 0;
+}
+.alert-message code {
+    background-color: #fff;
+    border-radius: 3px;
+}
+.alert-message-success {
+    background-color: #F4FDF0;
+    border-color: #3C763D;
+}
+
+.alert-message-success h4 {
+    color: #3C763D;
+}
+
+.alert-message-danger {
+    background-color: #fdf7f7;
+    border-color: #d9534f;
+}
+
+.alert-message-danger h4 {
+    color: #d9534f;
+}
+
+.alert-message-warning {
+    background-color: #fcf8f2;
+    border-color: #f0ad4e;
+}
+
+.alert-message-warning h4 {
+    color: #f0ad4e;
+}
+
+.alert-message-info {
+    background-color: #f4f8fa;
+    border-color: #5bc0de;
+}
+
+.alert-message-info h4 {
+    color: #5bc0de;
+}
+
+.alert-message-default {
+    background-color: #EEE;
+    border-color: #B4B4B4;
+}
+
+.alert-message-default h4 {
+    color: #000;
+}
+
+.alert-message-notice {
+    background-color: #FCFCDD;
+    border-color: #BDBD89;
+}
+
+.alert-message-notice h4 {
+    color: #444;
+}
+
+

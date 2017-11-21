@@ -1,0 +1,104 @@
+﻿@model CatalogIndexViewModel
+@{
+    ViewData["Title"] = "Catalog";
+}
+
+<!-- Side -->
+<div class="col-lg-3">
+    <div><h1 class="my-3"><a asp-action="Index" asp-controller="Catalog">Shop Name</a></h1></div>
+    <div class="my-3">
+
+        <!-- Search -->
+        <form asp-controller="Catalog" asp-action="Index" method="post">
+            <div class="input-group stylish-input-group">
+                <input type="text" id="searched" name="searched" class="form-control" value="@Model.SearchedPhrase" placeholder="Search">
+                <input type="hidden" id="categoryId" name="categoryId" value="@Model.SelectedCategoryId" class="form-control" >
+
+                <span class="input-group-addon">
+                    <button type="submit">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </span>
+            </div>
+        </form>
+    </div>
+
+    <!-- Categories -->
+    <div class="list-group">
+        @if (Model.SelectedCategoryId == 0)
+        {
+            <a asp-action="Index" asp-controller="Home" class="list-group-item active">All</a>
+        }
+        else
+        {
+            <a asp-action="Index" asp-controller="Home" class="list-group-item">All</a>
+        }
+
+        @foreach (ProductCategoryViewModel item in Model.Categories)
+        {
+            if (Model.SelectedCategoryId == item.Id)
+            {
+                <a asp-action="Index" asp-controller="Home" asp-route-categoryId="@item.Id" class="list-group-item active">@item.Name</a>
+            }
+            else
+            {
+                <a asp-action="Index" asp-controller="Home" asp-route-categoryId="@item.Id" class="list-group-item">@item.Name</a>
+            }
+        }
+    </div>
+</div>
+
+<!-- Center -->
+<div class="col-lg-9">
+    
+    @Html.Partial("Slider")
+
+    <div class="row">
+        <!-- Products Display -->
+        @foreach (CatalogItemViewModel p in Model.Items)
+        {
+            @Html.Partial("_productSmallDisplay", p);
+        }
+    </div>
+    
+
+    <!-- Pagging info -->
+    <div class="row " style="margin-bottom: 20px">
+        <div class="text-left col-5">
+            @if (Model.CurrentPage == 0)
+            {
+                <a class="btn btn-primary disabled" asp-action="Index" asp-route-pageIndex="@(Model.CurrentPage-1)" asp-route-categoryId="@Model.SelectedCategoryId">
+                    <i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Previous
+                </a>
+            }
+            else
+            {
+                <a class="btn btn-primary" asp-action="Index" asp-route-pageIndex="@(Model.CurrentPage-1)" asp-route-categoryId="@Model.SelectedCategoryId">
+                    <i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Previous
+                </a>
+            }            
+        </div>
+
+        <div class="col-2">
+            Page @(Model.CurrentPage+1) of @Model.PagesCount
+        </div>
+
+        <div class="text-right col-5">
+            @if ((Model.CurrentPage+1) >= Model.PagesCount)
+            {
+                <a class="btn btn-primary disabled" asp-action="Index" asp-route-pageIndex="@(Model.CurrentPage+1)" asp-route-categoryId="@Model.SelectedCategoryId">
+                    <span class="inline">Next</span> <i class="fa fa-chevron-right fa-lg inline" aria-hidden="true"></i>
+                </a>
+            }
+            else
+            {
+                <a class="btn btn-primary" asp-action="Index" asp-route-pageIndex="@(Model.CurrentPage+1)" asp-route-categoryId="@Model.SelectedCategoryId">
+                    <span class="inline">Next</span> <i class="fa fa-chevron-right fa-lg inline" aria-hidden="true"></i>
+                </a>
+            }            
+        </div>
+    </div>
+
+</div>
+
+

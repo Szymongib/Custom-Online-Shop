@@ -1,0 +1,77 @@
+﻿@model MyAccountViewModel
+@{
+    ViewData["Title"] = "My Account";
+}
+
+<div class="container">
+
+    <!-- User info -->
+    <h2 class="content-margin">My Account</h2>
+    <div class="row">
+        <div class="col-xs-12 col-12 text-center">
+            <div class="table-responsive" style="background-color: #FAFAFF">
+                <table class="table table-bordered table-hover">
+                    <tbody>
+                        <tr>
+                            <td>User Name:</td>
+                            <td>@Model.UserName</td>
+                        </tr>
+                        <tr>
+                            <td>Full Name:</td>
+                            <td>@Model.FullName</td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td>@Model.Email</td>
+                        </tr>
+                        <tr>
+                            <td>Phone Number:</td>
+                            <td>@Model.PhoneNumber</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit user buttnon -->
+    <div class="col-12">
+        <a asp-action="EditUser" asp-controller="Account" class="btn btn-info">Edit Information</a>
+    </div>
+
+    <br />
+    
+    <!-- Change password form -->
+    <div class="col-xs-12 col-sm-12 col-md-6">
+        <h3 class="content-margin">Change Password</h3>        
+        <div class="text-danger" asp-validation-summary="All"></div>
+
+        @await Component.InvokeAsync("ChangePassword")
+    </div>
+    
+    <br />
+    <br />
+    
+    <!-- Shipping options of user -->
+    <div>
+        <h3>Your shipping options: </h3>
+        <div class="col-12 row">
+            @foreach (ShippingInfoViewModel info in Model.UserShippingOptions)
+            {
+                <div class="col-lg-4 col-md-6 mb-4">
+                    @Html.Partial("_shippingInfo", info)
+                </div>
+            }
+        </div>
+        <a class="btn btn-info" asp-controller="Shipping" asp-action="CreateInfo" asp-route-returnUrl="/Account/MyAccount" >Add New</a>
+    </div>
+
+    <br />
+    <br />
+
+    <!-- Display orders button -->
+    <div class="content-margin">
+        <a class="btn btn-info" asp-controller="Account" asp-action="DisplayOrders">Display Orders</a>
+    </div>
+
+</div>

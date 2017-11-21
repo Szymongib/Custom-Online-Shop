@@ -1,0 +1,95 @@
+﻿@model CheckoutIndexViewModel
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<link rel="stylesheet" href="~/css/Checkout.css" />
+
+<div class="h2 content-margin col-12">Where do we ship?</div>
+
+<div class="row col-12 form-group product-chooser">
+
+    <!-- List all ahipping info of current user -->
+        @foreach (ShippingInfoViewModel info in Model.ShippingInfoOptions)
+        {
+            <div class="col-lg-4 col-md-6 mb-4">
+
+                @Html.Partial("_shippingInfo", info)
+            </div>
+        }
+
+</div>
+
+
+<!-- Add shipping info button -->
+<div class="row col-12">
+    <h5 class="d-inline">Missing your current addres?</h5>
+    <a class="btn btn-success" style="margin-left: 10px" asp-controller="Shipping" asp-action="CreateInfo" asp-route-returnUrl="/Checkout/">Add new!</a>
+</div>
+
+<br />
+<br />
+
+<!-- Payment methods -->
+<div class="h2 content-margin">Choose the form of payment:</div>
+
+<div class="row col-12 form-group product-chooser">
+
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="product-chooser-item">
+            <div class="card h-100">
+                <img class="card-img-top" src="http://placehold.it/700x400" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        Payment 1
+                    </h4>
+                </div>
+                <input type="radio" name="paymentMethod" value="Payment1" />                
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="product-chooser-item">
+            <div class="card h-100">
+                <img class="card-img-top" src="http://placehold.it/700x400" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        Payment 2
+                    </h4>
+                </div>
+                <input type="radio" name="paymentMethod" value="Payment2" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="product-chooser-item">
+            <div class="card h-100">
+                <img class="card-img-top" src="http://placehold.it/700x400" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        Payment 3
+                    </h4>
+                </div>
+                <input type="radio" name="paymentMethod" value="Payment3" />
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Note -->
+<div class="row col-12">
+    @Html.Partial("_createOrderForm", Model.OrderData)
+</div>
+
+<script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/lib/jQuery/dist/jquery.min.js"></script>
+
+
+@section Scripts
+{
+    <script src="~/js/checkoutScripts.js"></script>
+}
+

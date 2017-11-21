@@ -1,0 +1,14 @@
+﻿@model OrderDataViewModel
+
+<form class="form-control form-margin-10-5 col-lg-6 col-md-12 col-sm-12" asp-controller="Checkout" asp-action="CreateOrder">
+
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <input type="hidden" id="SelectedShippingInfo" asp-for="SelectedShippingInfoId" value="" />
+    <input type="hidden" id="SelectedPaymentMethod" asp-for="SelectedPaymentMethod" value="" />
+    <div class="form-group">
+        <label class="" asp-for="Note">Notes to order:</label>
+        <textarea class="form-control" asp-for="Note" placeholder="Notes..."></textarea>
+    </div>
+    <button class="btn btn-success content-margin" type="submit">I am paying!</button>
+
+</form>
