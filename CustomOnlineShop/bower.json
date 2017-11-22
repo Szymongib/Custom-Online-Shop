@@ -3,13 +3,11 @@
   "private": true,
   "dependencies": {
     "font-awesome": "Font-Awesome#v4.7.0",
-    "jquery-ui": "1.12.1",
     "jQuery": "3.2.1",
     "bootstrap": "v4.0.0-beta",
     "popper.js": "v1.12.5",
     "jquery-validation-unobtrusive": "v3.2.6",
-    "jquery-validation": "jquery-validate#1.17.0",
-    "jquery-ajax-unobtrusive": "jquery.unobtrusive-ajax#v3.2.4"
+    "jquery-validation": "jquery-validate#1.17.0"
   },
   "resolutions": {
     "bootstrap": "v4.0.0-beta"
