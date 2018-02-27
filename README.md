@@ -9,7 +9,7 @@ Default login credentials:
     Password: %secret123
     
     User account
-    Email = default@email.com
+    Email: default@email.com
     Password: %secret123
 
 
